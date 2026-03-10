@@ -47,9 +47,9 @@
    Click "Environment Variables" tab and add these:
    
    | Name | Value |
-   |------|-------|
-   | `VITE_SUPABASE_URL` | `https://dfjsmztjazjgcnzgrwqe.supabase.co` |
-   | `VITE_SUPABASE_ANON_KEY` | `sb_publishable_dJHnTfBRP0uP_mDv4uncnQ_Uy51JQhZ` |
+|------|-------|
+| `VITE_SUPABASE_URL` | `https://gidioetpcpuwrgusnzzq.supabase.co` |
+| `VITE_SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpZGlvZXRwY3B1d3JndXNuenpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNjQyMDksImV4cCI6MjA4Nzc0MDIwOX0.kdILHZDvvy62_XCqLHgHTmDhYI3Gjafz9-ezLGAjAYo` |
 
 5. **Deploy**:
    - Click "Deploy" button
@@ -89,10 +89,10 @@ Follow the prompts:
 ### Step 4: Add Environment Variables
 ```bash
 vercel env add VITE_SUPABASE_URL
-# Paste: https://dfjsmztjazjgcnzgrwqe.supabase.co
+# Paste: https://gidioetpcpuwrgusnzzq.supabase.co
 
 vercel env add VITE_SUPABASE_ANON_KEY
-# Paste: sb_publishable_dJHnTfBRP0uP_mDv4uncnQ_Uy51JQhZ
+# Paste: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpZGlvZXRwY3B1d3JndXNuenpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNjQyMDksImV4cCI6MjA4Nzc0MDIwOX0.kdILHZDvvy62_XCqLHgHTmDhYI3Gjafz9-ezLGAjAYo
 ```
 
 ### Step 5: Deploy to Production
