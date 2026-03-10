@@ -1,0 +1,1 @@
+﻿Testing Supabase Auth... https://gidioetpcpuwrgusnzzq.supabase.co

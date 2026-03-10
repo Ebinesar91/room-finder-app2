@@ -35,6 +35,7 @@ export const Login = () => {
             await authService.verifyOTP(email, otp);
             navigate('/');
         } catch (err) {
+            console.error('Verify OTP error:', err);
             setError('Invalid OTP. Please try again.');
         } finally {
             setLoading(false);
