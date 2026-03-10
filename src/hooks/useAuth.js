@@ -12,16 +12,29 @@ export const useAuth = () => {
         authService.getSession().then((session) => {
             if (session?.user) {
                 setUser(session.user);
-                // Fetch profile
-                profileService.getProfile(session.user.id).then((profileData) => {
-                    setProfile(profileData);
-                    setLoading(false);
-                }).catch(() => {
-                    setLoading(false);
-                });
+                // Fetch profile but don't hold the loading state if it takes too long
+                const profilePromise = profileService.getProfile(session.user.id);
+
+                // Set a timeout for the profile fetch so it doesn't block the UI
+                const timeoutPromise = new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Profile fetch timeout')), 5000)
+                );
+
+                Promise.race([profilePromise, timeoutPromise])
+                    .then((profileData) => {
+                        setProfile(profileData);
+                        setLoading(false);
+                    })
+                    .catch((err) => {
+                        console.warn('Profile fetch slow or failed:', err.message);
+                        setLoading(false); // Stop loading even if profile is slow
+                    });
             } else {
                 setLoading(false);
             }
+        }).catch((err) => {
+            console.error('Session check failed:', err);
+            setLoading(false);
         });
 
         // Listen for auth changes

@@ -8,9 +8,15 @@ export const Navbar = () => {
 
     const handleLogout = async () => {
         try {
+            console.log('Logging out...');
             await authService.signOut();
+            // Force a refresh or manual navigate if auth state change is slow
+            window.location.href = '/';
         } catch (error) {
             console.error('Logout error:', error);
+            // Even if signOut fails, try to clear locally
+            localStorage.clear();
+            window.location.href = '/login';
         }
     };
 

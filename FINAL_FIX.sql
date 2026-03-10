@@ -50,6 +50,10 @@ CREATE TABLE IF NOT EXISTS public.bookmarks (
   UNIQUE(user_id, room_id)
 );
 
+-- ADD INDEX FOR PERFOMANCE
+CREATE INDEX IF NOT EXISTS idx_rooms_owner_id ON public.rooms(owner_id);
+CREATE INDEX IF NOT EXISTS idx_rooms_location ON public.rooms(location);
+
 -- 5. SETUP STORAGE BUCKET
 -- This creates the 'room-images' bucket automatically
 INSERT INTO storage.buckets (id, name, public) 
